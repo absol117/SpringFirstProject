@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Read All Items</title>
+</head>
+<body>
+<h2>Items in Cart</h2>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Price</th>
+  </tr>
+  <!-- Loop through items and display them in the table -->
+  <tbody>
+  <tr th:each="item : ${items}">
+    <td th:text="${item.id}"></td>
+    <td th:text="${item.name}"></td>
+    <td th:text="${item.price}"></td>
+
+    <td>
+      <form action="/fix" method="post">
+        <input type="hidden" name="id" th:value="${item.id}">
+        <input type="text" name="newName" placeholder="New Name">
+        <button type="submit">Update Name</button>
+      </form>
+    </td>
+
+    <td>
+      <form action="/delete" method="post">
+        <input type="hidden" name="id" th:value="${item.id}">
+        <input type="submit" value="Delete">
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<a href="/home">Back to Home</a>
+
+</body>
+</html>
