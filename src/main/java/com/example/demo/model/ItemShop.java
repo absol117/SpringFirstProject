@@ -31,7 +31,9 @@ public class ItemShop {
         return id;
     }
 
-
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public float getPrice() {
         return price;
@@ -41,7 +43,4 @@ public class ItemShop {
         this.price = price;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 }
